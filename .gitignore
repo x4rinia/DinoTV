@@ -1,0 +1,22 @@
+__pycache__/
+.pytest_cache/
+*.pyc
+*.pyo
+*.log
+.coverage
+htmlcov/
+build/
+dist/
+.idea/
+.vscode/
+.cachetrash/
+
+# Generated release repository; rebuilt by tools/build_repository.py
+addons/
+!addons/.gitkeep
+
+# Never commit local Kodi/user data or personal playlists.
+userdata/
+*.m3u
+*.m3u8
+dinotv-data/

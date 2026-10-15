@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="plugin.video.dinotv" name="DinoTV" version="0.1.0" provider-name="X4rinia">
+  <requires>
+    <import addon="xbmc.python" version="3.0.1" />
+    <import addon="inputstream.adaptive" version="21.4.5" optional="true" />
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="main.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="de_DE">American Football, Spielplan und autorisierte Quellen</summary>
+    <summary lang="en_GB">American football schedules and authorised sources</summary>
+    <description lang="de_DE">DinoTV bündelt NFL-Spielpläne, Senderinformationen, Favoriten und eigene autorisierte Streams. Das Add-on enthält keine Pay-TV-Streams und umgeht weder DRM noch Geoblocking.</description>
+    <description lang="en_GB">DinoTV combines NFL schedules, channel information, favourites and your own authorised streams. It contains no pay-TV streams and does not bypass DRM or geoblocking.</description>
+    <disclaimer lang="de_DE">Inoffizielles Fanprojekt. DinoTV ist nicht mit der NFL, Sendern oder Streamingdiensten verbunden. Abos und regionale Rechte gelten weiterhin.</disclaimer>
+    <disclaimer lang="en_GB">Unofficial fan project. DinoTV is not affiliated with the NFL, broadcasters or streaming services. Subscriptions and regional rights still apply.</disclaimer>
+    <platform>all</platform>
+    <license>MIT</license>
+    <website>https://x4rinia.github.io/DinoTV/</website>
+    <source>https://github.com/x4rinia/DinoTV</source>
+    <assets>
+      <icon>resources/icon.png</icon>
+      <fanart>resources/fanart.jpg</fanart>
+    </assets>
+    <news>0.1.0: Erste öffentliche Version mit Kodi-Navigation, Quellenkatalog, ESPN-Spielplan, Favoriten, Verlauf und eigenen Streams.</news>
+  </extension>
+</addon>

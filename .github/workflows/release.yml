@@ -1,0 +1,64 @@
+name: Test, build and publish Kodi repository
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run automated tests
+        run: python -m unittest discover -s tests -v
+      - name: Validate Kodi add-ons with official checker
+        run: |
+          python -m pip install kodi-addon-checker
+          python tools/check_kodi_addons_offline.py
+      - name: Compile Python sources
+        run: python -m compileall -q plugin.video.dinotv
+      - name: Build Kodi repository and Pages site
+        run: python tools/build_repository.py --output site/addons --site-root site
+      - name: Upload build evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: dinotv-kodi-repository
+          path: site/addons
+          if-no-files-found: error
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - name: Upload release ZIPs
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            site/addons/repository.dinotv/*.zip
+            site/addons/plugin.video.dinotv/*.zip
+          fail_on_unmatched_files: true
+
+  deploy-pages:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

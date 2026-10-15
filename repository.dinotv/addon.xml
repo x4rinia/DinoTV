@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="repository.dinotv" name="DinoTV Repository" version="0.1.0" provider-name="X4rinia">
+  <extension point="xbmc.addon.repository" name="DinoTV Repository">
+    <dir>
+      <info>https://x4rinia.github.io/DinoTV/addons/addons.xml</info>
+      <checksum>https://x4rinia.github.io/DinoTV/addons/addons.xml.md5</checksum>
+      <datadir>https://x4rinia.github.io/DinoTV/addons/</datadir>
+      <hashes>sha256</hashes>
+    </dir>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="de_DE">Offizielles DinoTV Add-on-Repository</summary>
+    <summary lang="en_GB">Official DinoTV add-on repository</summary>
+    <description lang="de_DE">Installiert und aktualisiert das DinoTV Video-Add-on über GitHub Pages.</description>
+    <description lang="en_GB">Installs and updates the DinoTV video add-on from GitHub Pages.</description>
+    <platform>all</platform>
+    <license>MIT</license>
+    <website>https://x4rinia.github.io/DinoTV/</website>
+    <source>https://github.com/x4rinia/DinoTV</source>
+    <assets>
+      <icon>icon.png</icon>
+      <fanart>fanart.jpg</fanart>
+    </assets>
+    <news>0.1.0: Erstveröffentlichung.</news>
+  </extension>
+</addon>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings version="1">
+  <section id="plugin.video.dinotv">
+    <category id="general" label="30050">
+      <setting id="schedule_days" type="integer" label="30051" help="30052">
+        <level>0</level>
+        <default>14</default>
+        <constraints><minimum>1</minimum><maximum>30</maximum></constraints>
+        <control type="edit" format="integer" />
+      </setting>
+      <setting id="favorite_teams" type="string" label="30053" help="30054">
+        <level>0</level><default></default><control type="edit" format="string" />
+      </setting>
+      <setting id="history_size" type="integer" label="30055">
+        <level>0</level><default>20</default>
+        <constraints><minimum>0</minimum><maximum>100</maximum></constraints>
+        <control type="edit" format="integer" />
+      </setting>
+    </category>
+    <category id="streams" label="30056">
+      <setting id="m3u_path" type="path" label="30057" help="30058">
+        <level>0</level><default></default><constraints><sources><source>files</source></sources></constraints><control type="button" format="file" />
+      </setting>
+      <setting id="allow_external_links" type="boolean" label="30059" help="30060">
+        <level>0</level><default>true</default><control type="toggle" />
+      </setting>
+    </category>
+    <category id="privacy" label="30061">
+      <setting id="debug_logging" type="boolean" label="30062">
+        <level>1</level><default>false</default><control type="toggle" />
+      </setting>
+    </category>
+  </section>
+</settings>
