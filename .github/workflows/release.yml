@@ -53,6 +53,7 @@ jobs:
           fail_on_unmatched_files: true
 
   deploy-pages:
+    if: github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
     environment:
