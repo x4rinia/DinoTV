@@ -83,7 +83,7 @@ def write_site_index(site_root, archives):
     )
     html = """<!doctype html>
 <html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
-<title>DinoTV Kodi Repository</title><style>body{max-width:760px;margin:3rem auto;padding:1rem;background:#061421;color:#eafaff;font:18px system-ui}a{color:#23d5dc}code{color:#7edcff}</style></head>
+<title>DinoTV Kodi Repository</title><style>body{{max-width:760px;margin:3rem auto;padding:1rem;background:#061421;color:#eafaff;font:18px system-ui}}a{{color:#23d5dc}}code{{color:#7edcff}}</style></head>
 <body><h1>DinoTV</h1><p>Kodi-Repository für American Football.</p><h2>Downloads</h2><ul>{}</ul>
 <p>Installiere zuerst <code>repository.dinotv</code> als ZIP in Kodi.</p><p><a href="https://github.com/x4rinia/DinoTV">Quellcode und Anleitung</a></p></body></html>
 """.format(links)

@@ -9,7 +9,7 @@ from xml.etree import ElementTree as ET
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from tools.build_repository import ADDON_IDS, build
+from tools.build_repository import ADDON_IDS, build, write_site_index
 
 
 class RepositoryTests(unittest.TestCase):
@@ -37,6 +37,11 @@ class RepositoryTests(unittest.TestCase):
                     names = handle.namelist()
                     self.assertIn(addon_id + "/addon.xml", names)
                     self.assertTrue(all(name.startswith(addon_id + "/") for name in names))
+            site = Path(directory) / "site"
+            write_site_index(site, archives)
+            index = (site / "index.html").read_text(encoding="utf-8")
+            self.assertIn("repository.dinotv-0.1.0.zip", index)
+            self.assertIn("body{max-width", index)
 
 
 if __name__ == "__main__":
